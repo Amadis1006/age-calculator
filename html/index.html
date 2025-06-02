@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 style="text-align: center;"> Hello Welcome to my beautiful website! </h2> </br>
+    <h4> Give me your birthday and I'll give you your age!</h4> </br>
+    <label for="Birthday"> DATE DE NAISSANCE:</label>
+    <input type="date" id="datee"></br>
+    <button onclick="bouton()"> SAVE</button>
+    <p id="result"></p>
+
+    <script>
+        function bouton() { 
+            age = document.getElementById("datee") 
+            console.log(age.value);
+
+            if (!age || age.value == '') {
+                document.getElementById("result").textContent = "Veuillez entrer une date valide"
+                return;
+            }
+            today = new Date();
+            naissance = new Date(age.value);
+            age = today.getFullYear() - naissance.getFullYear();
+
+            if (today.getTime() > naissance.getTime()) {
+                document.getElementById("result").textContent = "Entrez une date valide";
+            }
+            
+                document.getElementById("result").textContent = age >1 ? "Vous avez " + age +  " ans" : "Vous avez " + age + " an ";
+           
+        }
+        console.log(age);
+        
+    </script>
+
+</body>
+
+</html>
